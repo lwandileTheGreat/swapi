@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import backGround from "./stars.jpg";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
 
-function App() {
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+} from "@apollo/client";
+import { PEOPLE_QUERY } from "./components/Queries";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Characters from "./components/Characters";
+import Details from "./components/Details";
+import Title from "./components/Title";
+import Page from "./components/Page";
+import Search from "./components/Search";
+
+const client = new ApolloClient({
+  uri: "https://3sdv5.sse.codesandbox.io/",
+  cache: new InMemoryCache(),
+});
+
+
+const App: React.FC = (): JSX.Element => {
+  const usePeople = () => {
+    const { loading, error, data } = useQuery(PEOPLE_QUERY);
+    return { loading, error, data };
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      
+     
+    >
+      <ApolloProvider client={client}>
+        <BrowserRouter>
+     
+          <div>
+            <section>
+              <Title />
+            </section>
+            <Routes>
+            <Route
+              path="/"
+             element={<Characters data={usePeople} currentPage={1} />}/>
+            <Route  path="/person/:name/:index" element={<Details/>} />
+            
+            <Route  path="/page/:number" element={<Page/>} />
+            <Route  path="/search/:name" element={<Search/>} />
+            </Routes>
+          </div>
+          
+        </BrowserRouter>
+      </ApolloProvider>
     </div>
   );
-}
+};
 
 export default App;

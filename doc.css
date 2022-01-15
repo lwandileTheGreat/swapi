@@ -68,7 +68,11 @@ label:hover{
 }
 
 /* progress bar styles */
-
+.progress-bar{
+  height: 5px;
+  background: var(--primary);
+  margin-top: 20px;
+}
 
 /* image grid styles */
 .Character-grid{
@@ -76,6 +80,15 @@ label:hover{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
+}
+.card-modal{
+  width: 30rem;
+  margin-top: 20px;
+ 
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   
 }
 
 .items-center{
@@ -219,98 +232,7 @@ label:hover{
   margin-left: 2.8em;
 }
 
-.swing::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #999;
-  top: -10px;
-  left: 50%;
-  border-bottom: none;
-  border-right: none;
-  transform: rotate(45deg);
-}
 
-.swing::before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  top: -14px;
-  left: 54%;
-  border-radius: 50% 50%;
-  background: #000;
-}
-.swing img {
-  border: 5px solid #f8f8f8;
-  display: block;
-}
-
-.card {
-  transform: translate(-50%, -50%);
-  transform-style: preserve-3d;
-  perspective: 600px;
-  transition: 0.5s;
-}
-
-.card:hover .card-front {
-  transform: rotateX(-180deg);
-  opacity: 0;
-}
-
-.card:hover .card-back {
-  transform: rotateX(0deg);
-}
-
-.card-front {
-  backface-visibility: hidden;
-  transition: 0.5s;
-  cursor: pointer;
-  backface-visibility: hidden;
-  transform: rotateX(0deg);
-  transition: 0.5s;
-  text-align: center;
-}
-
-.card-back {
-  backface-visibility: hidden;
-  transform: rotateX(180deg);
-  transition: 0.5s;
-  position: absolute;
-  text-align: center;
-}
-.card-modal{
-  width: 30rem;
-  margin-top: 25%;
- 
-   display: block;
-   margin-left: 50%;
-   margin-right: auto;
-   
-}
-
-footer h4 {
-  margin-left: 4.5em;
-}
-@keyframes drop {
-  0% {
-    opacity: 0;
-    transform: translateY(-80px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes swing {
-  0% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(-10deg);
-  }
-}
 
 @media screen and (max-width: 1024px) {
     .Character-grid{
@@ -318,19 +240,14 @@ footer h4 {
         display: block;
         
       }
-      .card-modal{
-        width: 20rem;
-        margin-top: 90%;
-       
-         display: block;
-         margin-left: 50%;
-         margin-right: auto;
-         
-      }
       .character {
           margin-top: 25px;
       }
-      
+      .card-modal{
+        width: '15rem';
+        margin-top: '25%';
+         margin-left: '50%' 
+      }
   .center {
    
     width: 100%;
@@ -364,11 +281,7 @@ footer h4 {
     width: 85%;
   }
 
-  .swing {
-    margin-top: 5.5em;
-    margin-left: 2.5em;
-  }
-
+  
   .body-text {
     margin-left: 2.5em;
     margin-right: 2em;
@@ -404,3 +317,4 @@ footer h4 {
   li a:hover {
     background-color: #111111;
   }
+  
