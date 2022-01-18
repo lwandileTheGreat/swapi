@@ -20,6 +20,8 @@ const Character: React.FC<Props> = (Props) => {
        
           <Card.Text>
           <Link to={`/person/${Props.name}/${Props.index + 1}`}>Details</Link>
+
+     
          
     </Card.Text>
             

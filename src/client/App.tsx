@@ -1,5 +1,5 @@
 import React from "react";
-import backGround from "./stars.jpg";
+ 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
